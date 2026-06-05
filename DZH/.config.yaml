@@ -1,0 +1,36 @@
+server:
+  ip: 0.0.0.0
+  port: 8000
+  auth_key: ""
+  websocket: ws://60.205.170.189:8002/xiaozhi/v1/
+
+selected_module:
+  VAD: SileroVAD
+  ASR: DoubaoStreamASR
+  LLM: MinimaxLLM
+  TTS: EdgeTTS
+  Memory: nomem
+  Intent: function_call
+
+ASR:
+  DoubaoStreamASR:
+    type: doubao_stream
+    auth_method: apikey
+    api_key: c0c9729b-2a33-45c7-88f0-736b855b9fc6
+    appid: ""
+    access_token: ""
+    cluster: volcengine_streaming_common
+    output_dir: tmp/
+
+LLM:
+  MinimaxLLM:
+    type: openai
+    base_url: https://api.minimax.chat/v1
+    model_name: abab6.5s-chat
+    api_key: sk-api-rSrjXYVb83qF88CWSg5Min9VkR6pgoVqUj4ZguxRAOef8D9nz7aC-tMPGyH5b_fwHFL8JqzNWVC9NWzceON1DeK09pP5SB0_gD7l4UWkcteAiTrK56qIuIs
+
+TTS:
+  EdgeTTS:
+    type: edge
+    voice: zh-CN-XiaoxiaoNeural
+    output_dir: tmp/
